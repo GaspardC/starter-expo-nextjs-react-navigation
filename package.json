@@ -49,5 +49,6 @@
     "jest-expo": "~37.0.0",
     "typescript": "^3.9.5"
   },
-  "private": true
+  "private": false,
+  "licence": "MIT"
 }
