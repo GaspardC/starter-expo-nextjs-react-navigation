@@ -9,8 +9,7 @@ import {
   View,
 } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
-
-import { MonoText } from '../components/StyledText';
+import { MonoText } from '../components/StyledText'
 import { useRouting } from 'expo-next-react-navigation';
 export default function HomeScreen() {
   const { navigate } = useRouting();
