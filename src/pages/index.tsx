@@ -2,7 +2,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import HomeScreen from './home';
-import ExpoApp from '../App';
+import ExpoApp from '../../App';
 export default function App() {
   return <ExpoApp />;
   return <HomeScreen />;
