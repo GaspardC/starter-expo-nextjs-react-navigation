@@ -2,9 +2,9 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import HomeScreen from '../screens/HomeScreen';
-// import ExpoApp from '../App';
-
+import ExpoApp from '../App';
 export default function App() {
+  return <ExpoApp />;
   return <HomeScreen />;
   return (
     <View style={styles.container}>
