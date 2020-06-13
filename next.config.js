@@ -11,9 +11,20 @@ const withTM = require('next-transpile-modules')([
   // you can add other modules that need traspiling here
 ]);
 
-module.exports = withPlugins([
-  withTM,
-  withFonts,
-  withImages,
-  [withExpo, { projectRoot: __dirname }],
-]);
+module.exports = withPlugins(
+  [withTM, withFonts, withImages, [withExpo, { projectRoot: __dirname }]],
+  {
+    // experimental: {
+    //   async redirects() {
+    //     return [
+    //       // 308 permanent redirect
+    //       {
+    //         source: '/home',
+    //         destination: '/',
+    //         permanent: true, // permanent redirect
+    //       },
+    //     ];
+    //   },
+    // },
+  }
+);

@@ -11,12 +11,12 @@ import {
 import { ScrollView } from 'react-native-gesture-handler';
 
 import { MonoText } from '../components/StyledText';
-import { useNavigation } from '@react-navigation/native';
-
+import { useRouting } from 'expo-next-react-navigation';
 export default function HomeScreen() {
-  const navigation = useNavigation();
+  const { navigate } = useRouting();
+
   const handleNavigate = () => {
-    navigation.navigate('Links');
+    navigate({ routeName: 'links' });
   };
   return (
     <View style={styles.container}>
