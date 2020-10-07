@@ -1,14 +1,12 @@
 import * as Linking from 'expo-linking';
 
 export default {
-  prefixes: [Linking.makeUrl('/')],
+  prefixes: [Linking.makeUrl('/'), `${Linking.makeUrl('/Root/')}`],
   config: {
-    Root: {
-      path: '',
-      screens: {
-        Home: 'home',
-        Links: 'links',
-      },
+    // path: '',
+    screens: {
+      Home: 'home',
+      Links: 'links',
     },
   },
 };

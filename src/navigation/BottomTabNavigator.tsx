@@ -2,11 +2,19 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import React, { useEffect } from 'react';
 
 import TabBarIcon from '../components/TabBarIcon';
-import HomeScreen from '../pages/home';
-import LinksScreen from '../pages/links';
+import HomeScreen from '../pages/nav/home';
+import LinksScreen from '../pages/nav/links';
 
 const BottomTab = createBottomTabNavigator();
-const INITIAL_ROUTE_NAME = 'Home';
+const INITIAL_ROUTE_NAME = 'home';
+
+const NAV_ROOT = 'nav'
+export const ROUTES = {
+  navHome: `${NAV_ROOT}/home`,
+  home: 'home',
+  navLinks: `${NAV_ROOT}/links`,
+  links: 'links'
+}
 
 export default function BottomTabNavigator({ navigation, route }) {
   // Set the header title on the parent stack navigator depending on the
@@ -19,7 +27,7 @@ export default function BottomTabNavigator({ navigation, route }) {
   return (
     <BottomTab.Navigator initialRouteName={INITIAL_ROUTE_NAME}>
       <BottomTab.Screen
-        name='home'
+        name={ROUTES.home}
         component={HomeScreen}
         options={{
           title: 'Get Started',
@@ -29,7 +37,7 @@ export default function BottomTabNavigator({ navigation, route }) {
         }}
       />
       <BottomTab.Screen
-        name='links'
+        name={ROUTES.links}
         component={LinksScreen}
         options={{
           title: 'Resources',

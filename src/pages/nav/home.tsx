@@ -4,18 +4,24 @@ import {
   Image,
   Platform,
   StyleSheet,
-  Text,
   TouchableOpacity,
   View,
 } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
-import { MonoText } from '../components/StyledText'
 import { useRouting } from 'expo-next-react-navigation';
+import Text from '../../components/Text';
+import FONTS from '../../config/theme/fonts';
+import { Button } from 'react-native-magnus';
+import { COLORS } from '../../config/theme/theme';
+import useShoppingCart from '../../hooks/zustand/useShoppingCart';
+import { getUniqueId } from '../../helpers/utils';
+import { ROUTES } from '../../navigation/BottomTabNavigator';
 export default function HomeScreen() {
   const { navigate } = useRouting();
+  const { products, setProducts } = useShoppingCart()
 
   const handleNavigate = () => {
-    navigate({ routeName: 'links' });
+    navigate({ routeName: ROUTES.navLinks });
   };
   return (
     <View style={styles.container}>
@@ -24,14 +30,9 @@ export default function HomeScreen() {
         contentContainerStyle={styles.contentContainer}
       >
         <View style={styles.welcomeContainer}>
-          <Image
-            source={
-              __DEV__
-                ? require('../assets/images/robot-dev.png')
-                : require('../assets/images/robot-prod.png')
-            }
-            style={styles.welcomeImage}
-          />
+          <Text>Products from Zustand Persisted </Text>
+          {products?.map(p => <Text key={p.id} fontFamily={FONTS.Montserrat_300Light}>{p.name}</Text>)}
+          <Button color={COLORS.orange300} bg='transparent' mt={2} alignSelf='center' onPress={() => setProducts({ name: ['Peach', 'Strawberry', 'Banana'][Math.round(Math.random() * 3)], id: getUniqueId() })}>add new fruit</Button>
         </View>
 
         <View style={styles.getStartedContainer}>
@@ -44,7 +45,7 @@ export default function HomeScreen() {
           <View
             style={[styles.codeHighlightContainer, styles.homeScreenFilename]}
           >
-            <MonoText>screens/HomeScreen.js</MonoText>
+            <Text>screens/HomeScreen.js</Text>
           </View>
 
           <Text style={styles.getStartedText}>
