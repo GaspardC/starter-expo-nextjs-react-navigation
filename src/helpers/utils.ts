@@ -1,8 +1,10 @@
 import packageJson from '../../package.json';
 import AsyncStorage from '@react-native-community/async-storage';
 import { Platform, Dimensions } from 'react-native';
-import { BREAKPOINTS_W, DEVICES } from '../hooks/useWindowsDimensions/index.web';
 
+import styledWeb from 'styled-components'
+import styledNative from 'styled-components/native';
+import { BREAKPOINTS_W, DEVICES } from '../hooks/useWindowsDimensions/breakpoints';
 
 export const isDev = () => __DEV__;
 export const isBrowser = () => typeof window !== 'undefined';
@@ -93,8 +95,6 @@ export const noopPromise = () => new Promise((resolve) => { resolve(true) })
 
 
 
-import styledWeb from 'styled-components'
-import styledNative from 'styled-components/native';
 export const styled = isDevice() ? styledNative : styledWeb;
 
 

@@ -13,15 +13,16 @@ import Text from '../../components/Text';
 import FONTS from '../../config/theme/fonts';
 import { Button } from 'react-native-magnus';
 import { COLORS } from '../../config/theme/theme';
-import useShoppingCart from '../../hooks/zustand/useShoppingCart';
 import { getUniqueId } from '../../helpers/utils';
-import { ROUTES } from '../../navigation/BottomTabNavigator';
+import { ROUTES } from '../../navigation/routes';
+
+
 export default function HomeScreen() {
   const { navigate } = useRouting();
-  const { products, setProducts } = useShoppingCart()
+
 
   const handleNavigate = () => {
-    navigate({ routeName: ROUTES.navLinks });
+    navigate({ routeName: ROUTES.links });
   };
   return (
     <View style={styles.container}>
@@ -31,8 +32,8 @@ export default function HomeScreen() {
       >
         <View style={styles.welcomeContainer}>
           <Text>Products from Zustand Persisted </Text>
-          {products?.map(p => <Text key={p.id} fontFamily={FONTS.Montserrat_300Light}>{p.name}</Text>)}
-          <Button color={COLORS.orange300} bg='transparent' mt={2} alignSelf='center' onPress={() => setProducts({ name: ['Peach', 'Strawberry', 'Banana'][Math.round(Math.random() * 3)], id: getUniqueId() })}>add new fruit</Button>
+          {/* {products?.map(p => <Text key={p.id} fontFamily={FONTS.Montserrat_300Light}>{p.name}</Text>)} */}
+          <Button color={COLORS.orange300} bg='transparent' mt={2} alignSelf='center' onPress={() => setProducts({ name: ['Peach', 'Strawberry', 'Banana'][Math.round(Math.random() * 2)], id: getUniqueId() })}>add new fruit</Button>
         </View>
 
         <View style={styles.getStartedContainer}>

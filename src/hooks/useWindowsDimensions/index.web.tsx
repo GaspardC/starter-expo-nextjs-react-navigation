@@ -1,13 +1,8 @@
 import { useEffect, useState } from 'react';
 import { isWeb, Metrics } from '../../helpers/utils';
+import { BREAKPOINTS_W, DEVICES } from './breakpoints';
 
 const DEFAULT_SZE = 1200;
-export enum DEVICES { SMALL_MOBILE = 'small_mobile', MOBILE = 'mobile', TABLET = 'tablet', DESKTOP = 'desktop' }
-export const BREAKPOINTS_W = {
-  [DEVICES.SMALL_MOBILE]: 375,
-  [DEVICES.MOBILE]: 600,
-  [DEVICES.TABLET]: 1025
-}
 
 export const isDesktop = type => type === DEVICES.DESKTOP;
 export const isTablet = type => type === DEVICES.TABLET;

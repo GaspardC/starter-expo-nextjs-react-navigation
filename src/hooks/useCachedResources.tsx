@@ -53,6 +53,7 @@ export default function useCachedResources() {
       try {
         // Load fonts
         await loadFontAsync()
+
       } catch (e) {
         // We might want to provide this error information to an error reporting service
         console.warn(e);
@@ -63,7 +64,6 @@ export default function useCachedResources() {
 
     loadResourcesAndDataAsync();
   }, [fontsLoaded]);
-
   return isLoadingComplete;
 }
 
