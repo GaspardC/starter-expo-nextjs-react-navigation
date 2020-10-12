@@ -2,9 +2,9 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import React, { useEffect } from 'react';
 
 import TabBarIcon from '../components/TabBarIcon';
-import HomeScreen from '../pages/nav/home';
-import LinksScreen from '../pages/nav/links';
+import HomeScreen from '../pages/home';
 import { ROUTES } from './routes';
+import LinksScreen from '../pages/links';
 
 const BottomTab = createBottomTabNavigator();
 const INITIAL_ROUTE_NAME = 'home';

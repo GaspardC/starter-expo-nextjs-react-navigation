@@ -9,12 +9,12 @@ import {
 } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { useRouting } from 'expo-next-react-navigation';
-import Text from '../../components/Text';
-import FONTS from '../../config/theme/fonts';
+import Text from '../components/Text';
+import FONTS from '../config/theme/fonts';
 import { Button } from 'react-native-magnus';
-import { COLORS } from '../../config/theme/theme';
-import { getUniqueId } from '../../helpers/utils';
-import { ROUTES } from '../../navigation/routes';
+import { COLORS } from '../config/theme/theme';
+import { getUniqueId } from '../helpers/utils';
+import { ROUTES } from '../navigation/routes';
 
 
 export default function HomeScreen() {
