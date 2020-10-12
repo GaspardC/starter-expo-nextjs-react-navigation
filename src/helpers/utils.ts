@@ -85,11 +85,10 @@ export const isMobileLayout = () => isServerSide() ? 1000 : (Dimensions.get('win
 
 export function isJsonString(str) {
     try {
-        JSON.parse(str);
+        return JSON.parse(str);
     } catch (e) {
         return false;
     }
-    return true;
 }
 export const noopPromise = () => new Promise((resolve) => { resolve(true) })
 

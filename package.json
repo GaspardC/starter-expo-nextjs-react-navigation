@@ -47,6 +47,7 @@
     "react-native-webview": "10.7.0",
     "react-select": "^3.1.0",
     "react-toastify": "^6.0.9",
+    "recoil": "^0.0.13",
     "setimmediate": "^1.0.5",
     "styled-components": "^5.2.0"
   },
@@ -56,6 +57,7 @@
     "@types/react": "~16.9.35",
     "@types/react-native": "~0.63.2",
     "babel-preset-expo": "^8.3.0",
+    "eslint-plugin-react-hooks": "^4.1.2",
     "jest-expo": "^39.0.0",
     "typescript": "~3.9.2"
   },

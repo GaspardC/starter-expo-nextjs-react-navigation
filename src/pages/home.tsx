@@ -1,7 +1,6 @@
 import * as WebBrowser from 'expo-web-browser';
 import * as React from 'react';
 import {
-  Image,
   Platform,
   StyleSheet,
   TouchableOpacity,
@@ -10,15 +9,24 @@ import {
 import { ScrollView } from 'react-native-gesture-handler';
 import { useRouting } from 'expo-next-react-navigation';
 import Text from '../components/Text';
+import { ROUTES } from '../navigation/routes';
+import STORAGE_KEYS from '../config/StorageKeys';
+import { useRecoilState } from 'recoil'
 import FONTS from '../config/theme/fonts';
-import { Button } from 'react-native-magnus';
+import { Button } from 'react-native-magnus'
 import { COLORS } from '../config/theme/theme';
 import { getUniqueId } from '../helpers/utils';
-import { ROUTES } from '../navigation/routes';
+import atoms from '../components/appProvider/recoil/atoms';
+import { atom } from 'recoil'
 
-
+const atomTest = atom({
+  key: STORAGE_KEYS.atoms.PRODUCTS,
+  default: [{ name: 'banana', id: 12345 }],
+})
 export default function HomeScreen() {
   const { navigate } = useRouting();
+
+  const [products, setProducts] = useRecoilState(atoms[STORAGE_KEYS.atoms.PRODUCTS]);
 
 
   const handleNavigate = () => {
@@ -31,9 +39,9 @@ export default function HomeScreen() {
         contentContainerStyle={styles.contentContainer}
       >
         <View style={styles.welcomeContainer}>
-          <Text>Products from Zustand Persisted </Text>
-          {/* {products?.map(p => <Text key={p.id} fontFamily={FONTS.Montserrat_300Light}>{p.name}</Text>)} */}
-          <Button color={COLORS.orange300} bg='transparent' mt={2} alignSelf='center' onPress={() => setProducts({ name: ['Peach', 'Strawberry', 'Banana'][Math.round(Math.random() * 2)], id: getUniqueId() })}>add new fruit</Button>
+          {/* <Text>Products from Zustand Persisted </Text> */}
+          {products?.map(p => <Text key={p.id} fontFamily={FONTS.Montserrat_300Light}>{p.name}</Text>)}
+          <Button color={COLORS.orange300} bg='transparent' mt={2} alignSelf='center' onPress={() => setProducts([...products, { name: ['Peach', 'Strawberry', 'Banana'][Math.round(Math.random() * 2)], id: getUniqueId() }])}>add new fruit</Button>
         </View>
 
         <View style={styles.getStartedContainer}>

@@ -24,7 +24,8 @@ import {
   Montserrat_900Black_Italic,
 } from '@expo-google-fonts/montserrat';
 
-export default function useCachedResources() {
+export default function useCachedResources({ skip = false }: { skip?: boolean }) {
+  if (skip) return true;
   const [isLoadingComplete, setLoadingComplete] = React.useState(false);
 
   let [fontsLoaded] = useFonts({
