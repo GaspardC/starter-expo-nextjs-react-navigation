@@ -26,7 +26,6 @@ const MyApp = (props) => {
                 stopDelayMs={200}
                 height={3}
             />
-            <Component {...pageProps} />
             {!areFontsLoaded ? <Text>Loading...</Text> : <Component {...pageProps} />}
             <Toast />
         </AppProvider>

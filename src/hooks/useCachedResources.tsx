@@ -1,7 +1,6 @@
-import { Ionicons, FontAwesome5, Entypo } from '@expo/vector-icons';
-
-import * as Font from 'expo-font';
 import React, { useEffect } from 'react';
+import { Ionicons, FontAwesome5, Entypo } from '@expo/vector-icons';
+import * as Font from 'expo-font';
 import {
   useFonts,
   Montserrat_100Thin,

@@ -1,14 +1,16 @@
 
 import React from 'react';
 import ThemeProvider from '../../config/theme/themeProvider';
-// import RecoilContainer from './recoil';
+import ReduxPersist from './redux/index';
 
 
-const AppProvider = ({ children }) => {
+const AppProvider = ({ children, pageProps }: { children, pageProps?}) => {
 
     return <ThemeProvider>
-        {children}
-    </ThemeProvider>
+        <ReduxPersist {...{ pageProps }}>
+            {children}
+        </ReduxPersist>
+    </ThemeProvider >
 
 }
 
