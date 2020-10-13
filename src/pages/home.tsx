@@ -36,7 +36,7 @@ export default function HomeScreen() {
         contentContainerStyle={styles.contentContainer}
       >
         <View style={styles.welcomeContainer}>
-          <Text>Products from Zustand Persisted </Text>
+          <Text>Fruits from Redux Persist </Text>
           {fruits?.map(f => <Text key={f.id} fontFamily={FONTS.Montserrat_300Light}>{f.name}</Text>)}
           <Button color={COLORS.orange300} bg='transparent' mt={2} alignSelf='center' onPress={() => dispatch(addFruit({ name: ['Peach', 'Strawberry', 'Banana'][Math.round(Math.random() * 2)], id: getUniqueId() }))}>add new fruit</Button>
         </View>

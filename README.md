@@ -17,6 +17,6 @@ yarn && yarn nextdev
 <br/>
 This setup contains : 
 
-[Zustand](https://github.com/pmndrs/zustand) : state management with a persist option.  
+[Redux Persist](https://github.com/rt2zz/redux-persist) : redux state management with a persist option and adapted for Next and react-native.  
 [Magnus-ui](https://magnus-ui.com) : design system and components
 and several useful componenents, hook and utilities like webview, toasts, fonts...
