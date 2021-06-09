@@ -1,4 +1,12 @@
-// @generated: @expo/next-adapter@2.1.12
-// Learn more: https://github.com/expo/expo/blob/master/docs/pages/versions/unversioned/guides/using-nextjs.md#shared-steps
+// babel.config.js
+module.exports = function (api) {
+  api.cache(true);
 
-module.exports = { presets: ['@expo/next-adapter/babel'] };
+  return {
+    presets: ["@expo/next-adapter/babel"],
+    plugins: [
+      //   "react-native-reanimated/plugin",
+      "@babel/plugin-proposal-class-properties"
+    ]
+  };
+};

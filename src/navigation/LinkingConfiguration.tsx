@@ -1,14 +1,13 @@
-import * as Linking from 'expo-linking';
+import * as Linking from "expo-linking";
 
+export const SCREEN_ROUTES = {
+  Home: "home",
+  Links: "links"
+};
 export default {
-  prefixes: [Linking.makeUrl('/')],
+  prefixes: [Linking.makeUrl("/")],
   config: {
-    Root: {
-      path: '',
-      screens: {
-        Home: 'home',
-        Links: 'links',
-      },
-    },
-  },
+    initialRouteName: SCREEN_ROUTES.Home,
+    screens: SCREEN_ROUTES
+  }
 };
