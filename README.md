@@ -10,5 +10,5 @@ The navigation is handled on all plateforms by [expo-next-react-navigation](http
 
 ```bash
 git clone https://github.com/GaspardC/starter-expo-nextjs-react-navigation
-yarn && yarn nextdev
+yarn && yarn next:dev
 ```
