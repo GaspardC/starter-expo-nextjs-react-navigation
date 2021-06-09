@@ -1,15 +1,14 @@
 import * as Linking from "expo-linking";
 
-export const SCREEN_ROUTES = {
-  Root: {
-    Home: "home",
-    Links: "links"
-  }
-};
+export const PAGES_ROUTES = {
+  Root: "tab",
+  Home: "home",
+  Links: "links"
+} as const;
 export default {
   prefixes: [Linking.makeUrl("/")],
   config: {
-    initialRouteName: SCREEN_ROUTES.Root.Home,
-    screens: SCREEN_ROUTES
+    initialRouteName: PAGES_ROUTES.Root,
+    screens: PAGES_ROUTES
   }
 };

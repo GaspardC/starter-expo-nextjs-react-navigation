@@ -1,26 +1,52 @@
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import * as React from 'react';
-import { Platform, StatusBar, StyleSheet, View } from 'react-native';
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+import * as React from "react";
+import { Platform, StatusBar, StyleSheet, View } from "react-native";
 
-import useCachedResources from './src/hooks/useCachedResources';
-import BottomTabNavigator from './src/navigation/BottomTabNavigator';
-import LinkingConfiguration from './src/navigation/LinkingConfiguration';
+import useCachedResources from "./src/hooks/useCachedResources";
+import BottomTabNavigator from "./src/navigation/BottomTabNavigator";
+import LinkingConfiguration, {
+  PAGES_ROUTES
+} from "./src/navigation/LinkingConfiguration";
 
 const Stack = createStackNavigator();
 
-export default function App(props) {
-  const isLoadingComplete = useCachedResources();
+const INITIAL_ROUTE_NAME = PAGES_ROUTES.Home;
 
+export default function App(props: {
+  initialRouteName?: typeof PAGES_ROUTES[keyof typeof PAGES_ROUTES];
+}) {
+  const isLoadingComplete = useCachedResources();
+  const initialRouteName = props?.initialRouteName;
+  console.log("initialRouteName", initialRouteName);
   if (!isLoadingComplete) {
     return null;
   } else {
     return (
       <View style={styles.container}>
-        {Platform.OS === 'ios' && <StatusBar barStyle="dark-content" />}
-        <NavigationContainer linking={LinkingConfiguration}>
+        {Platform.OS === "ios" && <StatusBar barStyle="dark-content" />}
+        <NavigationContainer
+          linking={LinkingConfiguration}
+          // linking={{
+          //   ...LinkingConfiguration,
+          //   ...(initialRouteName && {
+          //     config: {
+          //       ...LinkingConfiguration.config,
+          //       initialRouteName
+          //     }
+          //   })
+          // }}
+        >
           <Stack.Navigator>
-            <Stack.Screen name="Root" component={BottomTabNavigator} />
+            <Stack.Screen
+              name={PAGES_ROUTES.Root}
+              component={(args) => (
+                <BottomTabNavigator
+                  {...args}
+                  initialRouteName={INITIAL_ROUTE_NAME}
+                />
+              )}
+            />
           </Stack.Navigator>
         </NavigationContainer>
       </View>
@@ -31,6 +57,6 @@ export default function App(props) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-  },
+    backgroundColor: "#fff"
+  }
 });
