@@ -18,32 +18,20 @@ export default function App(props: {
 }) {
   const isLoadingComplete = useCachedResources();
   const initialRouteName = props?.initialRouteName;
-  console.log("initialRouteName", initialRouteName);
   if (!isLoadingComplete) {
     return null;
   } else {
     return (
       <View style={styles.container}>
         {Platform.OS === "ios" && <StatusBar barStyle="dark-content" />}
-        <NavigationContainer
-          linking={LinkingConfiguration}
-          // linking={{
-          //   ...LinkingConfiguration,
-          //   ...(initialRouteName && {
-          //     config: {
-          //       ...LinkingConfiguration.config,
-          //       initialRouteName
-          //     }
-          //   })
-          // }}
-        >
+        <NavigationContainer linking={LinkingConfiguration}>
           <Stack.Navigator>
             <Stack.Screen
               name={PAGES_ROUTES.Root}
               component={(args) => (
                 <BottomTabNavigator
                   {...args}
-                  initialRouteName={INITIAL_ROUTE_NAME}
+                  initialRouteName={initialRouteName}
                 />
               )}
             />
